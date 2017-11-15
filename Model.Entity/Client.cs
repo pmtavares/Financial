@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Model.Entity
 {
-    class Client
+    public class Client
     {
         private long idClient;
         private string name;
@@ -33,6 +33,8 @@ namespace Model.Entity
 
         [Display(Name = "Phone")]
         public string Phone { get => phone; set => phone = value; }
+
+        public int Status { get => status; set => status = value; }
 
         public Client()
         {
