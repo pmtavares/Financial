@@ -143,6 +143,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BeginController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -248,6 +249,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Begin\Index.cshtml" />
+    <Content Include="Views\Client\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -275,9 +277,9 @@
       <Project>{a5ed6bf5-c05f-440f-912e-4a54d266f79d}</Project>
       <Name>Model.Entity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Model.Neg\Model.Neg.csproj">
+    <ProjectReference Include="..\Model.Neg\Model.Bus.csproj">
       <Project>{669ef497-14d3-4305-9789-775b41d7117f}</Project>
-      <Name>Model.Neg</Name>
+      <Name>Model.Bus</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model.DAO", "Model.DAO\Mode
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model.Entity", "Model.Entity\Model.Entity.csproj", "{A5ED6BF5-C05F-440F-912E-4A54D266F79D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model.Neg", "Model.Neg\Model.Neg.csproj", "{669EF497-14D3-4305-9789-775B41D7117F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model.Bus", "Model.Neg\Model.Bus.csproj", "{669EF497-14D3-4305-9789-775B41D7117F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
