@@ -1,4 +1,5 @@
 ﻿using Model.Bus;
+using Model.Entity;
 using Model.Neg;
 using System;
 using System.Collections.Generic;
@@ -11,18 +12,25 @@ namespace FinancialSystem.Controllers
     public class ClientController : Controller
     {
 
-        ClientBus obClientBus;
+        ClientBus objClientBus;
 
         public ClientController()
         {
-            obClientBus = new ClientBus();
+            objClientBus = new ClientBus();
         }
-
-        // GET: Client
+        //Show Clients
         public ActionResult Index()
         {
-            return View();
+            List<Client> list = objClientBus.findAll();
+            return View(list);
         }
+
+
+        // GET: Client
+        //public ActionResult Index()
+       // {
+           // return View();
+        //}
 
         // GET: Client/Details/5
         public ActionResult Details(int id)

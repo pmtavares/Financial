@@ -274,7 +274,7 @@
       <Name>Model.DAO</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model.Entity\Model.Entity.csproj">
-      <Project>{a5ed6bf5-c05f-440f-912e-4a54d266f79d}</Project>
+      <Project>{1af3be2a-ccaa-4a7f-831f-d95dc1e8a388}</Project>
       <Name>Model.Entity</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model.Neg\Model.Bus.csproj">

@@ -139,7 +139,7 @@ namespace Model.DAO
                     objClient.Name = reader[1].ToString();
                     objClient.Address = reader[2].ToString();
                     objClient.Phone = reader[3].ToString();
-                    objClient.Pps = reader[5].ToString();
+                    objClient.Pps = reader[4].ToString();
                     clientList.Add(objClient);
 
                 }
