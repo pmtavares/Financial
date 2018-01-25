@@ -41,23 +41,74 @@ namespace FinancialSystem.Controllers
         // GET: Client/Create
         public ActionResult Create()
         {
+            MessageBeginRegister();
             return View();
         }
 
         // POST: Client/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Client objClient)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            MessageBeginRegister();
+            objClientBus.create(objClient);
+            ErrorMessageRegister(objClient);
+            ModelState.Clear();
+            return View("Create");
+            
+        }
 
-                return RedirectToAction("Index");
-            }
-            catch
+
+        public void ErrorMessageRegister(Client objClient)
+        {
+            switch (objClient.Status)
             {
-                return View();
+                case 1000://campo cpf com letras
+                    ViewBag.MessageErro = "Erro PPS, não insira Letras";
+                    break;
+
+                case 20://campo nome vazio
+                    ViewBag.MessageErro = "Insira Name of Client";
+                    break;
+
+                case 2://erro de nome
+                    ViewBag.MessageErro = "O nome não pode ter mais de 30 caracteres";
+                    break;
+
+                case 50://campo cpf vazio
+                    ViewBag.MessageErro = "Insira PPS do Client";
+                    break;
+
+                case 60://endereco vazio
+                    ViewBag.MessageErro = "Insira endereço do Client";
+                    break;
+
+                case 6://erro no endereço
+                    ViewBag.MessageErro = "Campo endereço não pode ter mais de 50 caracteres";
+                    break;
+
+                case 70://campo telefone vazio
+                    ViewBag.MessageErro = "Insira o telefone do Client";
+                    break;
+
+
+                case 8://erro de duplicidade
+                    ViewBag.MessageErro = "Client [" + objClient.IdClient + "] já está registrado no sistema";
+                    break;
+
+                case 9://erro de duplicidade
+                    ViewBag.MessageErro = "Numero de PPS [" + objClient.Pps + "] já está registrado no sistema";
+                    break;
+
+                case 99://Cliente Salvo com Sucesso
+                    ViewBag.MessageExit = "Client [" + objClient.Name + "] foi inserido no sistema";
+                    break;
             }
+
+        }
+
+        public void MessageBeginRegister()
+        {
+            ViewBag.MessageBegin = "Insira os dados do Client e clique em salvar";
         }
 
         // GET: Client/Edit/5

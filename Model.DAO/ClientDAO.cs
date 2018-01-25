@@ -21,7 +21,7 @@ namespace Model.DAO
 
         public void create1(Client obj)
         {
-            string create = "INSERT INTO CLIENT(name, address, phone, pps) VALUES('"+obj.Name+",'"+obj.Address+ ",'"+obj.Phone+ ",'"+obj.Pps+"')";
+            string create = "INSERT INTO CLIENT(name, address, phone, pps) VALUES('"+obj.Name+"','"+obj.Address+ "','"+obj.Phone+ "','"+obj.Pps+"')";
 
             try
             {
@@ -180,7 +180,7 @@ namespace Model.DAO
         public bool findClientByPPS(Client objClient)
         {
             bool hasRecords;
-            string find = "select*from Client where cpf='" + objClient.Pps + "'";
+            string find = "select * from Client where pps='" + objClient.Pps + "'";
             try
             {
                 sqlCmd = new SqlCommand(find, objConnectionDB.getCon());
@@ -203,7 +203,7 @@ namespace Model.DAO
                     objClient.Status = 1;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }

@@ -37,11 +37,8 @@ namespace Model.Bus
                     objClient.Status = 2;
                     return;
                 }
-
             }
             //end validar Name
-
-
 
             //begin validar Address retorna Status=6
             string Address = objClient.Address;
@@ -59,7 +56,6 @@ namespace Model.Bus
                     objClient.Status = 6;
                     return;
                 }
-
             }
             //end validar Address
 
@@ -79,7 +75,6 @@ namespace Model.Bus
                     objClient.Status = 7;
                     return;
                 }
-
             }
             //end validar Phone
 
@@ -104,7 +99,6 @@ namespace Model.Bus
                 return;
             }
             //end validar duplicidade pps
-
             //se nao tem erro
             objClient.Status = 99;
             objClientDao.create1(objClient);
