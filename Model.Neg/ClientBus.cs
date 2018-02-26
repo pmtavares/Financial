@@ -160,6 +160,15 @@ namespace Model.Bus
             }
             //end validar Name
 
+            //validate PPS
+            string pps = objClient.Pps;
+            if (pps == null)
+            {
+                objClient.Status = 50;
+                return;
+            }
+
+            //End validate PPS
 
 
 

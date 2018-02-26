@@ -63,31 +63,31 @@ namespace FinancialSystem.Controllers
             switch (objClient.Status)
             {
                 case 1000://campo cpf com letras
-                    ViewBag.MessageErro = "Erro PPS, não insira Letras";
+                    ViewBag.MessageErro = "Erro PPS, do not insert letters";
                     break;
 
                 case 20://campo nome vazio
-                    ViewBag.MessageErro = "Insira Name of Client";
+                    ViewBag.MessageErro = "Insert Name of Client";
                     break;
 
                 case 2://erro de nome
-                    ViewBag.MessageErro = "O nome não pode ter mais de 30 caracteres";
+                    ViewBag.MessageErro = "The Name cant have more than 30 caracteres";
                     break;
 
                 case 50://campo cpf vazio
-                    ViewBag.MessageErro = "Insira PPS do Client";
+                    ViewBag.MessageErro = "Insert PPS of Client";
                     break;
 
                 case 60://endereco vazio
-                    ViewBag.MessageErro = "Insira endereço do Client";
+                    ViewBag.MessageErro = "Insert address of client";
                     break;
 
                 case 6://erro no endereço
-                    ViewBag.MessageErro = "Campo endereço não pode ter mais de 50 caracteres";
+                    ViewBag.MessageErro = "Field address can not have more than 50 caracteres";
                     break;
 
                 case 70://campo telefone vazio
-                    ViewBag.MessageErro = "Insira o telefone do Client";
+                    ViewBag.MessageErro = "Insert the phone of the client";
                     break;
 
 
@@ -96,10 +96,10 @@ namespace FinancialSystem.Controllers
                     break;
 
                 case 9://erro de duplicidade
-                    ViewBag.MessageErro = "Numero de PPS [" + objClient.Pps + "] já está registrado no sistema";
+                    ViewBag.MessageErro = "Number of PPS [" + objClient.Pps + "] is already registered in the system";
                     break;
 
-                case 99://Cliente Salvo com Sucesso
+                case 99://Client Salvo com Sucesso
                     ViewBag.MessageExit = "Client [" + objClient.Name + "] foi inserido no sistema";
                     break;
             }
@@ -110,6 +110,26 @@ namespace FinancialSystem.Controllers
         {
             ViewBag.MessageBegin = "Insira os dados do Client e clique em salvar";
         }
+
+        [HttpGet]
+        public ActionResult Update(long id)
+        {
+            MessageBeginRegister();
+            Client objClient = new Client(id);
+            objClientBus.find(objClient);
+            return View(objClient);
+        }
+
+        [HttpPost]
+        public ActionResult Update(Client objClient)
+        {
+            MessageBeginRegister();
+            objClientBus.update(objClient);
+            ErrorMessageRegister(objClient);
+            return View();
+            //return Redirect("~/Cliente/Index/");
+        }
+
 
         // GET: Client/Edit/5
         public ActionResult Edit(int id)
